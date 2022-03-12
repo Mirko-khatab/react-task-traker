@@ -23,11 +23,14 @@ function App() {
 const ondelete = (id) => {
  settask(tasks.filter(task=>task.id!==id))
 }
-
+const ontogle = (id) => {
+  settask(tasks.map((task)=>task.id === id ?
+  {...task,completed:!task.completed}:task))
+}
   return (
     <div className="container">
       <Header />
-      <Tasks Tasks={tasks} onevent={ondelete}/>
+     {tasks.length>0 ?<Tasks Tasks={tasks} onevent={ondelete} Ontogle={ontogle}/>:<h3>No Task To Do </h3>}
     </div>
   );
 }
