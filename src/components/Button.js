@@ -1,5 +1,6 @@
-const Button = ({background , value}) => {
-  return  <button className="btn" style={{background}}>{value}</button>
+const Button = ({background , value , onadd , showadd}) => {
+  
+  return  <button className="btn" style={{background:showadd?'red':'green'}} onClick={onadd}>{value}</button>
   
 }
 //default value for button
