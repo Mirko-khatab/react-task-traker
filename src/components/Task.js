@@ -1,10 +1,20 @@
 import { FaTimes } from 'react-icons/fa'
-const Task = ({task ,event ,Ontogle}) => {
+
+const Task = ({ task, onDelete, onToggle }) => {
   return (
-      <div className={`task ${task.completed? 'reminder':''}`} onDoubleClick={()=>Ontogle(task.id)}>
-          <h3>{task.title} <FaTimes style={{color:'red' ,course:'pointer'}} onClick={()=>event(task.id)} /></h3>
-          <p>don't you giv up </p>
-      </div>
+    <div
+      className={`task ${task.reminder && 'reminder'}`}
+      onDoubleClick={() => onToggle(task.id)}
+    >
+      <h3>
+        {task.text}{' '}
+        <FaTimes
+          style={{ color: 'red', cursor: 'pointer' }}
+          onClick={() => onDelete(task.id)}
+        />
+      </h3>
+      <p>{task.day}</p>
+    </div>
   )
 }
 
